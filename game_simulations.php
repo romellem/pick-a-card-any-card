@@ -31,15 +31,10 @@ for ($threshold = 0; $threshold <= SIZE_OF_DECK; $threshold++) {
 
 		for ($i = 0; $i < SIZE_OF_HAND; $i++) {
 			$current_card = array_pop($hand);
+			$choice = ($current_card > $threshold);
 
-			if (count($hand) > 0) {
-				$choice = ($current_card > $threshold);
-
-				if ($choice) {
-					break;
-				}
-			} else {
-				// Last card in the deck!
+			if ($choice) {
+				break;
 			}
 		}
 
