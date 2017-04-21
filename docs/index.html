@@ -10,9 +10,14 @@
         <link rel="stylesheet" href="css/foundation.min.css">
 
         <style>
+            * {
+                transition: all 0.2s ease;
+            }
+
             body {
                 padding: 20px 10px;
             }
+
             table {
                 max-width: 600px;
                 width: 100%;
@@ -25,7 +30,6 @@
             table tfoot th {
                 text-align: center;
             }
-
 
             table tbody td {
                 text-align: right;
@@ -75,16 +79,16 @@
 
             .answer-header {
                 font-size: 5vw;
-
             }
+
+            .answer-body {
+                font-size: 24px;
+            }
+
             @media (max-width: 666px) {
               .answer-header {
                 font-size: 33px;
               }
-            }
-
-            * {
-                transition: all 0.2s ease;
             }
         </style>
     </head>
