@@ -31,9 +31,8 @@ for ($threshold = 0; $threshold <= SIZE_OF_DECK; $threshold++) {
 
 		for ($i = 0; $i < SIZE_OF_HAND; $i++) {
 			$current_card = array_pop($hand);
-			$choice = ($current_card > $threshold);
 
-			if ($choice) {
+			if ($current_card > $threshold) {
 				break;
 			}
 		}
