@@ -1,6 +1,6 @@
 <?php 
 
-const SIMULATIONS = 10000;
+const SIMULATIONS = 100000;
 const SIZE_OF_DECK = 100;
 const SIZE_OF_HAND = 10;
 
