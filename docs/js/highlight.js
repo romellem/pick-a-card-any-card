@@ -40,10 +40,19 @@ var getColorForPercentage = function(pct, percent_colors) {
 ready(function() {
     var cells = document.querySelectorAll('.percent');
 
+    var percentages = [];
+    [].forEach.call(cells, function(td) {
+        percentages.push(parseFloat(td.innerText));
+    });
+
+    var max_percentage = Math.max.apply(null, percentages);
+    var min_percentage = Math.min.apply(null, percentages);
+
     // Apply shading to each percentage cell
     [].forEach.call(cells, function(td) {
-        var percent = parseFloat(td.innerText);
-        var cell_bg_color = getColorForPercentage(percent, color_config);
+        var current_percentage = parseFloat(td.innerText);
+        var cell_shade_percent = (current_percentage - min_percentage) / (max_percentage - min_percentage);
+        var cell_bg_color = getColorForPercentage(cell_shade_percent, color_config);
         td.style.backgroundColor = cell_bg_color;
     });
 });
