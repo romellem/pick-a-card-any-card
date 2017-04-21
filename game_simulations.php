@@ -1,31 +1,35 @@
 <?php 
 
-const SIMULATIONS = 1000000;
+const SIMULATIONS = 10000;
+const SIZE_OF_DECK = 100;
+const SIZE_OF_HAND = 10;
+
 
 /**
  * @return array
  */
-function getHand($highest_card = 100) {
-	$cards = range(1, $highest_card);
+function getHand($size_of_deck, $size_of_hand) {
+	$cards = range(1, $size_of_deck);
 	shuffle($cards);
 
 	return array_slice($cards, 0, 10);
 };
 
-echo "Simulations: " . SIMULATIONS . "\n==========================\n\n";
+echo "Simulations:  " . SIMULATIONS . "\n";
+echo "Size of Deck: " . SIZE_OF_DECK . "\n";
+echo "Size of Hand: " . SIZE_OF_HAND . "\n";
+echo "==========================\n\n";
 
 echo "thrsh.\twins\tlosses\tpercentage\n";
 
-for ($threshold = 0; $threshold <= 100; $threshold++) {
+for ($threshold = 0; $threshold <= SIZE_OF_DECK; $threshold++) {
 	$score = ['wins' => 0, 'losses' => 0];
 
 	for ($simluations = 0; $simluations < SIMULATIONS; $simluations++) {
-		$hand = getHand(100);
+		$hand = getHand(SIZE_OF_DECK, SIZE_OF_HAND);
 		$original_hand = $hand;
 
-		$sizeof_hand = count($hand);
-
-		for ($i = 0; $i < $sizeof_hand; $i++) {
+		for ($i = 0; $i < SIZE_OF_HAND; $i++) {
 			$current_card = array_pop($hand);
 
 			if (count($hand) > 0) {
@@ -51,8 +55,8 @@ for ($threshold = 0; $threshold <= 100; $threshold++) {
 
 	$percentage = $score['wins'] / ($score['wins'] + $score['losses']);
 
-	echo "Threshold: $threshold\t| {$score['wins']} - {$score['losses']} ({$percentage}%)\n";
-	// echo "$threshold\t{$score['wins']}\t{$score['losses']}\t{$percentage}\n";
+	// echo "Threshold: $threshold\t| {$score['wins']} - {$score['losses']} ({$percentage}%)\n";
+	echo "$threshold\t{$score['wins']}\t{$score['losses']}\t{$percentage}\n";
 }
 
 echo "\nThanks for playing!\n";
