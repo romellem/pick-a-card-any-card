@@ -1,0 +1,456 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pick a Card Any Card</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/foundation.min.css">
+
+        <style>
+            body {
+                padding: 20px 10px;
+            }
+            table {
+                max-width: 600px;
+                width: 100%;
+                margin: 20px auto;
+
+                font-size: 14px;
+            }
+
+            table thead th,
+            table tfoot th {
+                text-align: center;
+            }
+
+
+            table tbody td {
+                text-align: right;
+            }
+
+            .max td {
+                border: 3px solid #333;
+                font-size: 1.2em;
+            }
+
+            .graph {
+                max-width: 557px;
+                margin: 10px auto;
+            }
+
+            .graph img {
+                width: 100%;
+            }
+
+            .p-t-10 {
+                padding-top: 10px;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                text-align: center;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            blockquote footer {
+                font-size: 0.8em;
+                font-style: italic;
+            }
+
+            blockquote footer::before {
+                /* em dash */
+                content: "\2014";
+            }
+
+            .answer-header {
+                font-size: 5vw;
+
+            }
+            @media (max-width: 666px) {
+              .answer-header {
+                font-size: 33px;
+              }
+            }
+
+            * {
+                transition: all 0.2s ease;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h1 style="margin-bottom: 0;">
+            Riddler Classic
+        </h1>
+        <h4 style="margin-top: -5px;">
+            April 21st, 2017
+        </h4>
+        <h2 class="p-t-10">
+            <a href="https://fivethirtyeight.com/features/pick-a-card-any-card/">
+                Pick A Card Any Card
+            </a>
+        </h2>
+
+        <blockquote cite="https://fivethirtyeight.com/features/pick-a-card-any-card/">
+            <p>From Mont Chris Hubbard, a prediction puzzle inspired by his habit
+            of trying to identify the funniest name as early as possible in a
+            movie's scrolling end credits:</p>
+
+            <p>From a shuffled deck of 100 cards that are numbered 1 to 100, you
+            are dealt 10 cards face down. You turn the cards over one by one.
+            After each card, you must decide whether to end the game. If you
+            end the game on the highest card in the hand you were dealt, you
+            win; otherwise, you lose.</p>
+
+            <p>What is the strategy that optimizes your chances of winning? How
+            does the strategy change as the sizes of the deck and the hand are
+            changed?</p>
+
+            <footer>
+                <a href="https://fivethirtyeight.com/features/pick-a-card-any-card/">source</a>
+            </footer>
+        </blockquote>
+
+        <br>
+
+        <p class="answer-header">Answer:</p>
+        <p class="answer-body">
+            If your number is greater than <strong>87</strong>, then keep it.
+            <br>
+            If you do, you will win approximately <strong>58%</strong> of the time.
+        </p>
+
+        <hr>
+        <h6>Data:</h6>
+        <figure class="graph">
+            <img src="img/graph.png">
+        </figure>
+        <table id="data">
+            <thead>
+                <tr>
+                    <th>Threshold</th><th>Wins</th><th>Losses</th><th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td><td>101239</td><td>898761</td><td class="percent">0.101239</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>101497</td><td>898503</td><td class="percent">0.101497</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>103525</td><td>896475</td><td class="percent">0.103525</td>
+                </tr>
+                <tr>
+                    <td>4</td><td>104332</td><td>895668</td><td class="percent">0.104332</td>
+                </tr>
+                <tr>
+                    <td>5</td><td>105761</td><td>894239</td><td class="percent">0.105761</td>
+                </tr>
+                <tr>
+                    <td>6</td><td>107613</td><td>892387</td><td class="percent">0.107613</td>
+                </tr>
+                <tr>
+                    <td>7</td><td>107937</td><td>892063</td><td class="percent">0.107937</td>
+                </tr>
+                <tr>
+                    <td>8</td><td>110085</td><td>889915</td><td class="percent">0.110085</td>
+                </tr>
+                <tr>
+                    <td>9</td><td>110999</td><td>889001</td><td class="percent">0.110999</td>
+                </tr>
+                <tr>
+                    <td>10</td><td>112721</td><td>887279</td><td class="percent">0.112721</td>
+                </tr>
+                <tr>
+                    <td>11</td><td>113281</td><td>886719</td><td class="percent">0.113281</td>
+                </tr>
+                <tr>
+                    <td>12</td><td>115391</td><td>884609</td><td class="percent">0.115391</td>
+                </tr>
+                <tr>
+                    <td>13</td><td>117119</td><td>882881</td><td class="percent">0.117119</td>
+                </tr>
+                <tr>
+                    <td>14</td><td>118415</td><td>881585</td><td class="percent">0.118415</td>
+                </tr>
+                <tr>
+                    <td>15</td><td>119678</td><td>880322</td><td class="percent">0.119678</td>
+                </tr>
+                <tr>
+                    <td>16</td><td>121025</td><td>878975</td><td class="percent">0.121025</td>
+                </tr>
+                <tr>
+                    <td>17</td><td>123079</td><td>876921</td><td class="percent">0.123079</td>
+                </tr>
+                <tr>
+                    <td>18</td><td>125278</td><td>874722</td><td class="percent">0.125278</td>
+                </tr>
+                <tr>
+                    <td>19</td><td>126259</td><td>873741</td><td class="percent">0.126259</td>
+                </tr>
+                <tr>
+                    <td>20</td><td>128485</td><td>871515</td><td class="percent">0.128485</td>
+                </tr>
+                <tr>
+                    <td>21</td><td>129346</td><td>870654</td><td class="percent">0.129346</td>
+                </tr>
+                <tr>
+                    <td>22</td><td>131945</td><td>868055</td><td class="percent">0.131945</td>
+                </tr>
+                <tr>
+                    <td>23</td><td>134687</td><td>865313</td><td class="percent">0.134687</td>
+                </tr>
+                <tr>
+                    <td>24</td><td>135832</td><td>864168</td><td class="percent">0.135832</td>
+                </tr>
+                <tr>
+                    <td>25</td><td>138241</td><td>861759</td><td class="percent">0.138241</td>
+                </tr>
+                <tr>
+                    <td>26</td><td>140325</td><td>859675</td><td class="percent">0.140325</td>
+                </tr>
+                <tr>
+                    <td>27</td><td>142767</td><td>857233</td><td class="percent">0.142767</td>
+                </tr>
+                <tr>
+                    <td>28</td><td>144271</td><td>855729</td><td class="percent">0.144271</td>
+                </tr>
+                <tr>
+                    <td>29</td><td>147346</td><td>852654</td><td class="percent">0.147346</td>
+                </tr>
+                <tr>
+                    <td>30</td><td>149174</td><td>850826</td><td class="percent">0.149174</td>
+                </tr>
+                <tr>
+                    <td>31</td><td>152494</td><td>847506</td><td class="percent">0.152494</td>
+                </tr>
+                <tr>
+                    <td>32</td><td>155134</td><td>844866</td><td class="percent">0.155134</td>
+                </tr>
+                <tr>
+                    <td>33</td><td>157999</td><td>842001</td><td class="percent">0.157999</td>
+                </tr>
+                <tr>
+                    <td>34</td><td>160402</td><td>839598</td><td class="percent">0.160402</td>
+                </tr>
+                <tr>
+                    <td>35</td><td>163393</td><td>836607</td><td class="percent">0.163393</td>
+                </tr>
+                <tr>
+                    <td>36</td><td>167013</td><td>832987</td><td class="percent">0.167013</td>
+                </tr>
+                <tr>
+                    <td>37</td><td>169849</td><td>830151</td><td class="percent">0.169849</td>
+                </tr>
+                <tr>
+                    <td>38</td><td>172696</td><td>827304</td><td class="percent">0.172696</td>
+                </tr>
+                <tr>
+                    <td>39</td><td>176378</td><td>823622</td><td class="percent">0.176378</td>
+                </tr>
+                <tr>
+                    <td>40</td><td>180049</td><td>819951</td><td class="percent">0.180049</td>
+                </tr>
+                <tr>
+                    <td>41</td><td>183931</td><td>816069</td><td class="percent">0.183931</td>
+                </tr>
+                <tr>
+                    <td>42</td><td>187763</td><td>812237</td><td class="percent">0.187763</td>
+                </tr>
+                <tr>
+                    <td>43</td><td>191491</td><td>808509</td><td class="percent">0.191491</td>
+                </tr>
+                <tr>
+                    <td>44</td><td>195652</td><td>804348</td><td class="percent">0.195652</td>
+                </tr>
+                <tr>
+                    <td>45</td><td>201354</td><td>798646</td><td class="percent">0.201354</td>
+                </tr>
+                <tr>
+                    <td>46</td><td>204479</td><td>795521</td><td class="percent">0.204479</td>
+                </tr>
+                <tr>
+                    <td>47</td><td>209477</td><td>790523</td><td class="percent">0.209477</td>
+                </tr>
+                <tr>
+                    <td>48</td><td>215810</td><td>784190</td><td class="percent">0.21581</td>
+                </tr>
+                <tr>
+                    <td>49</td><td>220226</td><td>779774</td><td class="percent">0.220226</td>
+                </tr>
+                <tr>
+                    <td>50</td><td>226315</td><td>773685</td><td class="percent">0.226315</td>
+                </tr>
+                <tr>
+                    <td>51</td><td>231389</td><td>768611</td><td class="percent">0.231389</td>
+                </tr>
+                <tr>
+                    <td>52</td><td>238013</td><td>761987</td><td class="percent">0.238013</td>
+                </tr>
+                <tr>
+                    <td>53</td><td>244177</td><td>755823</td><td class="percent">0.244177</td>
+                </tr>
+                <tr>
+                    <td>54</td><td>250801</td><td>749199</td><td class="percent">0.250801</td>
+                </tr>
+                <tr>
+                    <td>55</td><td>257166</td><td>742834</td><td class="percent">0.257166</td>
+                </tr>
+                <tr>
+                    <td>56</td><td>264844</td><td>735156</td><td class="percent">0.264844</td>
+                </tr>
+                <tr>
+                    <td>57</td><td>272537</td><td>727463</td><td class="percent">0.272537</td>
+                </tr>
+                <tr>
+                    <td>58</td><td>280486</td><td>719514</td><td class="percent">0.280486</td>
+                </tr>
+                <tr>
+                    <td>59</td><td>289597</td><td>710403</td><td class="percent">0.289597</td>
+                </tr>
+                <tr>
+                    <td>60</td><td>297732</td><td>702268</td><td class="percent">0.297732</td>
+                </tr>
+                <tr>
+                    <td>61</td><td>306910</td><td>693090</td><td class="percent">0.30691</td>
+                </tr>
+                <tr>
+                    <td>62</td><td>316308</td><td>683692</td><td class="percent">0.316308</td>
+                </tr>
+                <tr>
+                    <td>63</td><td>326522</td><td>673478</td><td class="percent">0.326522</td>
+                </tr>
+                <tr>
+                    <td>64</td><td>335992</td><td>664008</td><td class="percent">0.335992</td>
+                </tr>
+                <tr>
+                    <td>65</td><td>346577</td><td>653423</td><td class="percent">0.346577</td>
+                </tr>
+                <tr>
+                    <td>66</td><td>357683</td><td>642317</td><td class="percent">0.357683</td>
+                </tr>
+                <tr>
+                    <td>67</td><td>369608</td><td>630392</td><td class="percent">0.369608</td>
+                </tr>
+                <tr>
+                    <td>68</td><td>381405</td><td>618595</td><td class="percent">0.381405</td>
+                </tr>
+                <tr>
+                    <td>69</td><td>393297</td><td>606703</td><td class="percent">0.393297</td>
+                </tr>
+                <tr>
+                    <td>70</td><td>405546</td><td>594454</td><td class="percent">0.405546</td>
+                </tr>
+                <tr>
+                    <td>71</td><td>418096</td><td>581904</td><td class="percent">0.418096</td>
+                </tr>
+                <tr>
+                    <td>72</td><td>430892</td><td>569108</td><td class="percent">0.430892</td>
+                </tr>
+                <tr>
+                    <td>73</td><td>444488</td><td>555512</td><td class="percent">0.444488</td>
+                </tr>
+                <tr>
+                    <td>74</td><td>457869</td><td>542131</td><td class="percent">0.457869</td>
+                </tr>
+                <tr>
+                    <td>75</td><td>468890</td><td>531110</td><td class="percent">0.46889</td>
+                </tr>
+                <tr>
+                    <td>76</td><td>482677</td><td>517323</td><td class="percent">0.482677</td>
+                </tr>
+                <tr>
+                    <td>77</td><td>495796</td><td>504204</td><td class="percent">0.495796</td>
+                </tr>
+                <tr>
+                    <td>78</td><td>508259</td><td>491741</td><td class="percent">0.508259</td>
+                </tr>
+                <tr>
+                    <td>79</td><td>520425</td><td>479575</td><td class="percent">0.520425</td>
+                </tr>
+                <tr>
+                    <td>80</td><td>532081</td><td>467919</td><td class="percent">0.532081</td>
+                </tr>
+                <tr>
+                    <td>81</td><td>542764</td><td>457236</td><td class="percent">0.542764</td>
+                </tr>
+                <tr>
+                    <td>82</td><td>552718</td><td>447282</td><td class="percent">0.552718</td>
+                </tr>
+                <tr>
+                    <td>83</td><td>561104</td><td>438896</td><td class="percent">0.561104</td>
+                </tr>
+                <tr>
+                    <td>84</td><td>568501</td><td>431499</td><td class="percent">0.568501</td>
+                </tr>
+                <tr>
+                    <td>85</td><td>572584</td><td>427416</td><td class="percent">0.572584</td>
+                </tr>
+                <tr>
+                    <td>86</td><td>577384</td><td>422616</td><td class="percent">0.577384</td>
+                </tr>
+                <tr class="max">
+                    <td>87</td><td>577921</td><td>422079</td><td class="percent">0.577921</td>
+                </tr>
+                <tr>
+                    <td>88</td><td>575857</td><td>424143</td><td class="percent">0.575857</td>
+                </tr>
+                <tr>
+                    <td>89</td><td>570199</td><td>429801</td><td class="percent">0.570199</td>
+                </tr>
+                <tr>
+                    <td>90</td><td>560882</td><td>439118</td><td class="percent">0.560882</td>
+                </tr>
+                <tr>
+                    <td>91</td><td>547484</td><td>452516</td><td class="percent">0.547484</td>
+                </tr>
+                <tr>
+                    <td>92</td><td>529008</td><td>470992</td><td class="percent">0.529008</td>
+                </tr>
+                <tr>
+                    <td>93</td><td>504268</td><td>495732</td><td class="percent">0.504268</td>
+                </tr>
+                <tr>
+                    <td>94</td><td>473707</td><td>526293</td><td class="percent">0.473707</td>
+                </tr>
+                <tr>
+                    <td>95</td><td>434877</td><td>565123</td><td class="percent">0.434877</td>
+                </tr>
+                <tr>
+                    <td>96</td><td>388726</td><td>611274</td><td class="percent">0.388726</td>
+                </tr>
+                <tr>
+                    <td>97</td><td>332890</td><td>667110</td><td class="percent">0.33289</td>
+                </tr>
+                <tr>
+                    <td>98</td><td>267163</td><td>732837</td><td class="percent">0.267163</td>
+                </tr>
+                <tr>
+                    <td>99</td><td>190151</td><td>809849</td><td class="percent">0.190151</td>
+                </tr>
+                <tr>
+                    <td>100</td><td>100017</td><td>899983</td><td class="percent">0.100017</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Threshold</th><th>Wins</th><th>Losses</th><th>Percentage</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="js/highlight.js"></script>
+    </body>
+</html>
